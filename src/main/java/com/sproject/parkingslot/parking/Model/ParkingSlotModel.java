@@ -1,5 +1,6 @@
 package com.sproject.parkingslot.parking.Model;
 
+import com.sproject.parkingslot.parking.Entity.Vehicle;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,5 @@ public class ParkingSlotModel {
     private Integer levelId;
     private VehicleType slotType;
     private Boolean occupied;
+    private VehicleModel vehicleDetails;
 }

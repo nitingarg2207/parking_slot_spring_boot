@@ -22,10 +22,11 @@ public class Vehicle {
     @Enumerated(value = EnumType.STRING)
     private VehicleType vehicleType;
 
-    @Column(name = "LEVEL_ID")
-    private int levelId;
-
     @Column(name = "SLOT_ID")
-    private int slotId;
+    private Integer slotId;
+
+    @OneToOne
+    @JoinColumn(name="SLOT_ID", insertable = false, updatable = false)
+    private ParkingSlot slot;
 
 }

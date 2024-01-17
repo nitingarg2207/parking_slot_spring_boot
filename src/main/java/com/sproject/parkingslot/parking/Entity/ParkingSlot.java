@@ -1,5 +1,6 @@
 package com.sproject.parkingslot.parking.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sproject.parkingslot.parking.Model.VehicleType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,4 +27,7 @@ public class ParkingSlot {
 
     @Column(name = "OCCUPIED")
     private Boolean occupied;
+
+    @OneToOne(mappedBy = "slot")
+    private Vehicle vehicleDetails;
 }

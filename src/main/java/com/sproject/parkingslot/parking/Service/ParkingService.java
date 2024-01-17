@@ -10,7 +10,7 @@ import java.util.List;
 public interface ParkingService {
      public Response<String> park(VehicleModel vehicleModel);
      public Response<String> unpark(VehicleModel vehicleModel);
-     public Response<String> addLevel(ParkingLevelModel parkingLevelModel);
+     public Response<ParkingLevel> addLevel(ParkingLevelModel parkingLevelModel);
      public Response<String> decreaseLevel(Integer id);
-     public Response<List<ParkingLevel>> statistics();
+     public Response<List<ParkingLevelModel>> statistics();
 }

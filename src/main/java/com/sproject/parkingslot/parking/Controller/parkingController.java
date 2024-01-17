@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class parkingController {
@@ -21,9 +22,9 @@ public class parkingController {
         return "hehehe";
     }
     @PostMapping("/parking/add-level")
-    public ResponseEntity<String> addLevel(@RequestBody ParkingLevelModel parkingLevelModel){
+    public ResponseEntity<Object> addLevel(@RequestBody ParkingLevelModel parkingLevelModel){
         try{
-            Response<String> data = parkingService.addLevel(parkingLevelModel);
+            Response<ParkingLevel> data = parkingService.addLevel(parkingLevelModel);
             return new ResponseEntity<>(data.getReturnObject(), data.getHttpStatus());
         } catch(Exception e) {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
@@ -61,8 +62,8 @@ public class parkingController {
     }
 
     @GetMapping("/parking/statistics")
-    public ResponseEntity<List<ParkingLevel>> staticstics(){
-        Response<List<ParkingLevel>> data = parkingService.statistics();
+    public ResponseEntity<List<ParkingLevelModel>> staticstics(){
+        Response<List<ParkingLevelModel>> data = parkingService.statistics();
         return new ResponseEntity<>(data.getReturnObject(), data.getHttpStatus());
     }
 }
